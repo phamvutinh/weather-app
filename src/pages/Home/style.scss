@@ -4,7 +4,7 @@
 .container {
   margin: rem(50px) rem(123px);
   @media screen and (max-width: 992px) {
-    margin: rem(50px) rem(55px);
+    margin: rem(50px) rem(24px);
   }
 }
 .wrapper-circle {
@@ -31,5 +31,11 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: rem(48px);
     grid-row-gap: rem(48px);
+  }
+  @media screen and (max-width: 992px) {
+    &__content {
+      grid-row-gap: rem(32px);
+      grid-template-columns: 100%;
+    }
   }
 }
