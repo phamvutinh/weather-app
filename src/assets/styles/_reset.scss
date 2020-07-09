@@ -1,0 +1,11 @@
+@import "./_variables";
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  color: $text_1;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+}

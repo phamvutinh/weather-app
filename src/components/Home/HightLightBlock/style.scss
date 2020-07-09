@@ -1,0 +1,40 @@
+@import "../../../assets/styles/_variables";
+@import "../../../assets/styles/_function";
+
+.hightlight-block {
+  background-color: $secondary;
+  width: rem(328px);
+  text-align: center;
+  padding: rem(22px) 0;
+  h2 {
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    font-family: Raleway;
+    span {
+      font-size: rem(35px);
+    }
+  }
+  &__wsw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: rem(18px);
+    .circle {
+      width: rem(30px);
+      height: rem(30px);
+      span {
+        font-size: rem(15px);
+      }
+    }
+    p {
+      font-size: rem(14px);
+      margin-left: 10px;
+    }
+  }
+  &__progress {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../../assets/styles/_variables";
+@import "../../../assets/styles/_function";
+
+.weather {
+  background-color: $secondary;
+  padding: rem(18px) rem(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__title {
+    text-align: center;
+    h5 {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+  &__img {
+    text-align: center;
+    img {
+      width: rem(56px);
+    }
+  }
+  &__status {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: rem(30px);
+    &-min {
+      color: $text_3;
+      margin-left: rem(15px);
+    }
+    &-max {
+    }
+  }
+}

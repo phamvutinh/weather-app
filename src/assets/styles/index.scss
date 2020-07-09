@@ -1,0 +1,33 @@
+@import "../styles/_variables";
+@import "../styles/_function";
+
+.App {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  &__content {
+    background-color: $primary;
+  }
+  @media screen and (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.title {
+  color: $text_1;
+  &__temper {
+    span {
+      font-size: rem(50px);
+      margin-left: rem(-40px);
+      color: $text_4;
+    }
+  }
+  &-md {
+    font-size: rem(36px);
+  }
+  &-lg {
+    font-size: rem(144px);
+  }
+  &-second-color {
+    color: $text_3;
+  }
+}

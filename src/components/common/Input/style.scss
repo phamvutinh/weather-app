@@ -1,0 +1,23 @@
+@import "../../../assets/styles/_variables";
+@import "../../../assets/styles/_function";
+
+.input {
+  padding: rem(15px);
+  border: 1px $text_1 solid;
+  display: inline-flex;
+  align-items: center;
+  span {
+    font-size: rem(20px);
+    margin-right: rem(15px);
+    color: $text_2;
+    font-weight: bold;
+  }
+  input {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    &::placeholder {
+      color: $text_2;
+    }
+  }
+}

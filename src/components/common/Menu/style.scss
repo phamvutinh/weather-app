@@ -1,0 +1,65 @@
+@import "../../../assets/styles/_variables";
+@import "../../../assets/styles/_function";
+
+.menu {
+  width: rem(459px);
+  position: fixed;
+  top: 0;
+  background-color: $secondary;
+  height: 100vh;
+  z-index: 999;
+  transition: 0.5s all ease-in-out;
+  left: -200%;
+  &.active {
+    left: 0;
+  }
+  &__wrapper {
+    margin: rem(19px) rem(47px);
+  }
+  &__close {
+    text-align: right;
+    span {
+      cursor: pointer;
+    }
+  }
+  &__search {
+    display: flex;
+    margin-top: rem(35px);
+    .button {
+      margin-left: rem(12px);
+    }
+  }
+  &__list {
+    margin-top: rem(50px);
+    ul {
+      list-style: none;
+    }
+    &-item {
+      box-sizing: border-box;
+      padding: rem(23px) rem(12px);
+      font-size: rem(16px);
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: flex;
+      justify-content: space-between;
+      transition: 0.3s all ease-in-out;
+      span {
+        opacity: 0;
+        transition: 0.3s all ease-in-out;
+      }
+      &:hover {
+        border-color: $text_4;
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    &__wrapper {
+      margin: rem(11px);
+      max-width: 77%;
+    }
+  }
+}
