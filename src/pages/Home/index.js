@@ -21,11 +21,11 @@ export default function Home() {
         />
       </div>
       <div className="new-weather">
-        <WeatherBlock />
-        <WeatherBlock />
-        <WeatherBlock />
-        <WeatherBlock />
-        <WeatherBlock />
+        {/* {places.consolidated_weather
+          ? places.consolidated_weather.map((weather) => (
+              <WeatherBlock {...weather} key={weather.id} />
+            ))
+          : "Loading"} */}
       </div>
       <div className="hightlight">
         <h2>Today’s Hightlights</h2>

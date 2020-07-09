@@ -11,6 +11,7 @@ export default function Menu({ active, handleClose }) {
       handleClose(false);
     }
   }
+
   return (
     <div className={`menu ${active ? "active" : ""}`}>
       <div className="menu__wrapper">
