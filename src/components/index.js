@@ -6,6 +6,7 @@ import {
   Search,
   Menu,
   StatusBar,
+  Loading,
 } from "./common";
 import { WeatherBlock, HightLightBlock } from "./Home";
 
@@ -19,4 +20,5 @@ export {
   Search,
   Menu,
   StatusBar,
+  Loading,
 };

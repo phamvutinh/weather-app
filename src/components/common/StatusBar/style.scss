@@ -26,6 +26,8 @@
     border-radius: 80px;
     position: relative;
     &-sub {
+      transition: 0.3s all ease-in-out;
+
       position: absolute;
       width: 70%;
       height: 100%;

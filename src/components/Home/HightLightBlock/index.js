@@ -2,12 +2,19 @@ import React from "react";
 import "./style.scss";
 import { Circle, StatusBar } from "../../common";
 
-function HightLightBlock({ title, count, unit, isWsw, hasProgress }) {
+function HightLightBlock({
+  title,
+  windSpeed,
+  count,
+  unit,
+  isWsw,
+  hasProgress,
+}) {
   return (
     <div className="hightlight-block">
       <h3>{title}</h3>
       <h2>
-        {count}
+        {parseInt(count)}
         <span>{unit}</span>
       </h2>
       {isWsw && (
@@ -18,7 +25,7 @@ function HightLightBlock({ title, count, unit, isWsw, hasProgress }) {
       )}
       {hasProgress && (
         <div className="hightlight-block__progress">
-          <StatusBar />
+          <StatusBar width={`${count}%`} />
         </div>
       )}
     </div>

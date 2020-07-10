@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export default function Circle({ content, icon, ...props }) {
+function Circle({ content, icon, ...props }) {
   return (
     <div className="circle" {...props}>
       {content ? (
@@ -12,3 +12,4 @@ export default function Circle({ content, icon, ...props }) {
     </div>
   );
 }
+export default React.memo(Circle);

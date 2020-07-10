@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export default function StatusBar() {
+export default function StatusBar({ width }) {
   return (
     <div className="status-bar">
       <div className="status-bar__progress">
@@ -11,7 +11,7 @@ export default function StatusBar() {
           <span>100</span>
         </div>
         <div className="status-bar__progress-main"></div>
-        <div className="status-bar__progress-sub"></div>
+        <div style={{ width }} className="status-bar__progress-sub"></div>
       </div>
     </div>
   );

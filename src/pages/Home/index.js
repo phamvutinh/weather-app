@@ -1,14 +1,19 @@
 import React from "react";
-import "./style.scss";
-import { Circle, WeatherBlock } from "../../components";
+import { Circle, WeatherBlock, Loading } from "../../components";
+import { GlobalContext } from "../../context/GlobalState";
 import HightLightBlock from "../../components/Home/HightLightBlock";
+import "./style.scss";
 
-export default function Home() {
-  return (
+export default function Home({ listWeather, today }) {
+  const { loading } = React.useContext(GlobalContext);
+  return !loading && listWeather.length ? (
     <div className="container">
       <div className="wrapper-circle">
         <Circle
-          style={{ backgroundColor: "#E7E7EB", color: "#110E3C" }}
+          style={{
+            backgroundColor: "#E7E7EB",
+            color: "#110E3C",
+          }}
           content="℃"
         />
         <Circle
@@ -21,21 +26,44 @@ export default function Home() {
         />
       </div>
       <div className="new-weather">
-        {/* {places.consolidated_weather
-          ? places.consolidated_weather.map((weather) => (
-              <WeatherBlock {...weather} key={weather.id} />
-            ))
-          : "Loading"} */}
+        {listWeather.length ? (
+          listWeather.map(
+            (weather, index) =>
+              index > 0 && <WeatherBlock {...weather} key={weather.id} />
+          )
+        ) : (
+          <Loading />
+        )}
       </div>
       <div className="hightlight">
         <h2>Today’s Hightlights</h2>
         <div className="hightlight__content">
-          <HightLightBlock isWsw title="Wind status" count="7" unit="mph" />
-          <HightLightBlock hasProgress title="Humidity" count="84" unit="%" />
-          <HightLightBlock title="Visibility" count="6,44" unit="miles" />
-          <HightLightBlock title="Air Pressure" count="998" unit="mb" />
+          <HightLightBlock
+            count={today.wind_speed}
+            isWsw
+            title="Wind status"
+            unit="mph"
+          />
+          <HightLightBlock
+            hasProgress
+            title="Humidity"
+            count={today.humidity}
+            unit="%"
+          />
+          <HightLightBlock
+            title="Visibility"
+            count={today.visibility}
+            unit="miles"
+          />
+          <HightLightBlock
+            title="Air Pressure"
+            count={today.air_pressure}
+            unit="mb"
+          />
         </div>
       </div>
     </div>
+  ) : (
+    <Loading width="10%" />
   );
 }

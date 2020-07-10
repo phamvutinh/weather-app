@@ -5,5 +5,6 @@ import Input from "./Input";
 import Search from "./Search";
 import Menu from "./Menu";
 import StatusBar from "./StatusBar";
+import Loading from "./Loading";
 
-export { SideBar, Circle, Button, Input, Search, Menu, StatusBar };
+export { SideBar, Circle, Button, Input, Search, Menu, StatusBar, Loading };
