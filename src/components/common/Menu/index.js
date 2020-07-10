@@ -35,7 +35,12 @@ export default function Menu({ active, handleClose }) {
           />
         </div>
         <div className="menu__list">
-          <ListLink cities={cities} woeid={woeid} addWoeid={addWoeid} />
+          <ListLink
+            handleClose={close}
+            cities={cities}
+            woeid={woeid}
+            addWoeid={addWoeid}
+          />
         </div>
       </div>
     </div>

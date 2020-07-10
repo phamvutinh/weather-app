@@ -2,7 +2,7 @@
 @import "../../assets/styles/_function";
 
 .container {
-  margin: rem(50px) rem(123px);
+  margin: rem(50px) rem(154px);
   @media screen and (max-width: 992px) {
     margin: rem(50px) rem(24px);
   }
@@ -13,10 +13,13 @@
 }
 .new-weather {
   margin-top: rem(66px);
-  display: grid;
-  grid-template-columns: repeat(5, rem(120px));
-  grid-column-gap: rem(25px);
-  justify-content: center;
+  display: flex;
+  .weather {
+    margin-right: rem(25px);
+    &:nth-last-child() {
+      margin-right: 0;
+    }
+  }
   @media screen and (max-width: 992px) {
     grid-template-columns: rem(120px) rem(120px);
     grid-column-gap: rem(25px);

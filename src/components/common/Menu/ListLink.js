@@ -1,7 +1,7 @@
 import React from "react";
 import Loading from "../Loading";
 
-function ListLink({ cities, woeid, addWoeid }) {
+function ListLink({ cities, woeid, addWoeid, handleClose }) {
   function handleClick(woeid) {
     if (addWoeid) {
       addWoeid(woeid);
@@ -17,7 +17,10 @@ function ListLink({ cities, woeid, addWoeid }) {
             className={`menu__list-item ${
               city.woeid === woeid ? "active" : ""
             }`}
-            onClick={() => handleClick(city.woeid)}
+            onClick={() => {
+              handleClick(city.woeid);
+              handleClose();
+            }}
           >
             {city.title}
             <span className="material-icons">keyboard_arrow_right</span>
