@@ -2,7 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 import weatherApi from "../api/weatherApi";
 
 const initialState = {
-  woeid: 1252431,
+  woeid: null,
+  unit: "C",
 };
 
 export const GlobalContext = createContext(initialState);
@@ -11,8 +12,14 @@ export function GlobalProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [woeid, setWoeid] = React.useState(null);
+  const [unit, setUnit] = React.useState("C");
 
   useEffect(() => {
+    setLocation();
+  }, []);
+
+  function setLocation() {
+    setLoading(true);
     navigator.geolocation.getCurrentPosition(function (position) {
       const lat = position.coords.latitude;
       const lng = position.coords.longitude;
@@ -28,7 +35,7 @@ export function GlobalProvider({ children }) {
           throw err;
         });
     });
-  }, []);
+  }
 
   function addWoeid(id) {
     if (id) {
@@ -37,9 +44,31 @@ export function GlobalProvider({ children }) {
     }
   }
 
+  function searchByText(query) {
+    weatherApi
+      .locationSearch({ query })
+      .then((result) => {
+        setCities(result.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
   return (
     <GlobalContext.Provider
-      value={{ woeid, addWoeid, cities, loading, setLoading }}
+      value={{
+        setUnit,
+        unit,
+        setLocation,
+        woeid,
+        addWoeid,
+        cities,
+        loading,
+        setLoading,
+        searchByText,
+      }}
     >
       {children}
     </GlobalContext.Provider>

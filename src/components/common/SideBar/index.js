@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ReactLoading from "react-loading";
 import "./style.scss";
 import Weather from "./weather";
 import Button from "../Button";
 import Menu from "../Menu";
 import Circle from "../Circle";
+import Loading from "../Loading";
 import { convertDate } from "../../../utils";
 import { GlobalContext } from "../../../context/GlobalState";
 
@@ -16,14 +16,18 @@ export default function SideBar({
   titleCity,
 }) {
   const [activeMenu, setActiveMenu] = useState(false);
-  const { loading } = React.useContext(GlobalContext);
+  const { loading, setLocation, unit } = React.useContext(GlobalContext);
 
   return (
     <div className="side-bar">
       <Menu active={activeMenu} handleClose={setActiveMenu} />
       <div className="side-bar__search">
         <Button onClick={setActiveMenu} title="Search for places" />
-        <Circle />
+        <Circle
+          onClick={() => {
+            setLocation();
+          }}
+        />
       </div>
       {!loading && weather_state_abbr ? (
         <>
@@ -31,6 +35,7 @@ export default function SideBar({
             weather_state_abbr={weather_state_abbr}
             the_temp={the_temp}
             weather_state_name={weather_state_name}
+            unit={unit}
           />
           <div className="side-bar__footer">
             <p>Today • {convertDate(applicable_date)}</p>
@@ -41,19 +46,7 @@ export default function SideBar({
           </div>
         </>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-          }}
-        >
-          <ReactLoading width="30%" type="spinningBubbles" />
-        </div>
+        <Loading />
       )}
     </div>
   );

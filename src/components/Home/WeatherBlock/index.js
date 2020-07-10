@@ -8,6 +8,7 @@ export default function WeatherBlock({
   min_temp,
   weather_state_abbr,
   applicable_date,
+  unit,
 }) {
   return (
     <div className="weather">

@@ -26,7 +26,6 @@ function App() {
           throw err;
         });
     }
-    console.log("woeid change", woeid);
   }, [woeid, setLoading]);
 
   return (

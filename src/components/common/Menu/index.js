@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
 import Input from "../Input";
 import Button from "../Button";
 import ListLink from "./ListLink";
+import { GlobalContext } from "../../../context/GlobalState";
 
 export default function Menu({ active, handleClose }) {
+  const { addWoeid, woeid, cities, searchByText } = useContext(GlobalContext);
+  const inputRef = React.useRef();
+
   function close() {
     if (handleClose) {
       handleClose(false);
     }
+  }
+
+  function handleClick() {
+    searchByText(inputRef.current.value);
   }
 
   return (
@@ -19,11 +27,15 @@ export default function Menu({ active, handleClose }) {
           <span className="material-icons">close</span>
         </div>
         <div className="menu__search">
-          <Input containerStyle={{ width: "80%" }} />
-          <Button title="Search" style={{ backgroundColor: "#3C47E9" }} />
+          <Input ref={inputRef} containerStyle={{ width: "80%" }} />
+          <Button
+            onClick={handleClick}
+            title="Search"
+            style={{ backgroundColor: "#3C47E9" }}
+          />
         </div>
         <div className="menu__list">
-          <ListLink />
+          <ListLink cities={cities} woeid={woeid} addWoeid={addWoeid} />
         </div>
       </div>
     </div>
