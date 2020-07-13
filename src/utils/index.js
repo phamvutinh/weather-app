@@ -17,7 +17,7 @@ export const convertDegree = (CDegree, unit) => {
     case "F":
       return (
         <>
-          {parseInt(+(CDegree * 9) / 5 + 32)} <span>℃</span>
+          {parseInt(+(CDegree * 9) / 5 + 32)} <span>℉</span>
         </>
       );
     default:

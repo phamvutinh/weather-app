@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { imagesObject } from "../../../utils/objectFreeze";
-import { convertDate } from "../../../utils";
+import { convertDate, convertDegree } from "../../../utils";
 
 export default function WeatherBlock({
   max_temp,
@@ -19,8 +19,12 @@ export default function WeatherBlock({
         <img src={imagesObject[weather_state_abbr]} alt="" />
       </div>
       <div className="weather__status">
-        <div className="weather__status-max">{parseInt(+max_temp)}°C</div>
-        <div className="weather__status-min">{parseInt(+min_temp)}°C</div>
+        <div className="weather__status-max">
+          {convertDegree(max_temp, unit)}
+        </div>
+        <div className="weather__status-min">
+          {convertDegree(min_temp, unit)}
+        </div>
       </div>
     </div>
   );
