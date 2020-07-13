@@ -7,9 +7,10 @@
   &__content {
     background-color: $primary;
     position: relative;
+    min-height: 100vh;
   }
-  @media screen and (max-width: 992px) {
-    grid-template-columns: 100%;
+  @media screen and (max-width: 1400px) {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 20%;
   &__title {
     text-align: center;
     h5 {
@@ -32,8 +33,6 @@
     &-min {
       color: $text_3;
       margin-left: rem(15px);
-    }
-    &-max {
     }
   }
 }

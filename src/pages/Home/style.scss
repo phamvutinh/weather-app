@@ -2,8 +2,8 @@
 @import "../../assets/styles/_function";
 
 .container {
-  margin: rem(50px) rem(154px);
-  @media screen and (max-width: 992px) {
+  margin: rem(50px) rem(120px);
+  @media screen and (max-width: 1400px) {
     margin: rem(50px) rem(24px);
   }
 }
@@ -16,14 +16,30 @@
   display: flex;
   .weather {
     margin-right: rem(25px);
-    &:nth-last-child() {
+    &:last-child {
       margin-right: 0;
     }
   }
-  @media screen and (max-width: 992px) {
-    grid-template-columns: rem(120px) rem(120px);
-    grid-column-gap: rem(25px);
-    grid-row-gap: rem(30px);
+  @media screen and (max-width: 1400px) {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 0;
+    .weather {
+      margin-right: rem(25px);
+      flex-basis: calc(50% - 3.3rem);
+      margin-top: rem(25px);
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 330px) {
+    .weather {
+      flex-basis: calc(100% - 3.3rem);
+      margin-right: 0;
+    }
   }
 }
 .hightlight {
